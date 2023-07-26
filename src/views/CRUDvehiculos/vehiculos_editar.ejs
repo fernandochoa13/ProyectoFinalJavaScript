@@ -1,0 +1,57 @@
+<%- include('../partials/_header') -%>
+
+<br><br><br>
+<div class="container-fluid container-md container-sm">
+    <h1 class="titulosAuto">Editar Vehículo</h1>
+<div class="row ">
+    <div class="col-xl-12 col-lg-12 col-md-10 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form action="/updatevehiculo/<%- data.idVehiculo %>" method="post">
+                    <div class="form-group">
+                        <label for="marca">Marca:</label>
+                        <input type="text" name="marca" value="<%- data.marca %>" class="form-control">
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Color:</label>
+                        <input type="text" name="color" value="<%- data.color %>" class="form-control">
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Modelo:</label>
+                        <input type="text" name="modelo"  value="<%- data.modelo %>" class="form-control">
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="mantenimiento">Mantenimiento: <%- data.mantenimiento %></label>
+                        <select name="mantenimiento" class="form-select" value="<% data.mantenimiento %>">
+                            <option value="Preventivo">Preventivo</option>
+                            <option value="Correctivo">Correctivo</option>
+                        </select>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="propietario">Propietario del vehículo: <%- data.propietario_idpropietario %></label>
+                            <select name="propietario_idpropietario" class="form-select" value="<% data.propietario_idpropietario %>">
+                                <% data_p.map(item=> { %>
+                                 <option value="<%= item.idPropietario%>"> <%= item.nombre + " " + item.apellido %> </option>
+                                <% }) %>
+                            </select>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="mecanico">Mecánico asignado: <%- data.mecanico_idmecanico %></label>
+                        <select name="mecanico_idmecanico" class="form-select" value="<% data.mecanico_idmecanico %>">
+                            <% data_m.map(item=> { %>
+                             <option value="<%= item.idMecanico%>"> <%= item.nombre + " " + item.apellido %> </option>
+                            <% }) %>
+                        </select> <br> <br>
+                    <button type="submit" class="btn btn-primary">Editar vehículo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div> <hr>
+
+<%- include('../partials/_footer') -%>

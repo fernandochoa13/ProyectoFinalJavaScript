@@ -1,0 +1,91 @@
+<%- include('../partials/_header') -%>
+
+
+<h1 class="titulosAuto"> 🚗 Registrar vehículos 🚗</h1>
+<div class="container-fluid container-md container-sm">
+    <div class="row">
+        <div class="col-xl-8 col-lg-9 col-md-10 col-sm-2">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td style="text-align: center">N#</td>
+                        <td style="text-align: center">Marca</td>
+                        <td style="text-align: center">Color</td>
+                        <td style="text-align: center">Modelo</td>
+                        <td style="text-align: center">Mantenimiento</td>
+                        <td style="text-align: center">Propietario</td>
+                        <td style="text-align: center">Mecánico</td>
+                        <td>Modificar</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%   if (data) {  %>
+                        <%        for(var i=0;i<data.length;i++) { %>
+                                     <tr>
+                                         <td style="text-align: center"><%= (i + 1) %></td>
+                                         <td style="text-align: center"><%= data[i].marca %></td>
+                                         <td style="text-align: center"><%= data[i].color %></td>
+                                         <td style="text-align: center"><%= data[i].modelo %></td>
+                                         <td style="text-align: center"><%= data[i].mantenimiento %></td>
+                                         <td style="text-align: center"><%= data[i].propietario_idpropietario %></td>
+                                         <td style="text-align: center"><%= data[i].mecanico_idmecanico %></td>
+                                         <td style="text-align: center"><a href="/updatevehiculo/<%= data[i].idVehiculo %>" class="btn btn-info">Editar</a></td>
+    <td style="text-align: center"><a href="/deletevehiculo/<%= data[i].idVehiculo %>" class="btn btn-danger">Borrar</a></td>
+                                         </tr>
+                         <%   }  %>
+                        <%  }  %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+            <form action="/addvehiculo" method="post">
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input type="text" name="marca" placeholder="Ingrese la marca" class="form-control">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="color">Color:</label>
+                <input type="text" name="color" placeholder="Ingrese el color" class="form-control">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <input type="text" name="modelo" placeholder="Ingrese el modelo" class="form-control">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="mantenimiento">Mantenimiento:</label>
+                <select name="mantenimiento" class="form-select">
+                    <option value="Preventivo">Preventivo</option>
+                    <option value="Correctivo">Correctivo</option>
+                </select>
+            </div><br>
+            <div class="form-group">
+                <label for="propietario">Propietario del vehículo:</label>
+                    <select name="propietario_idpropietario" class="form-select">
+                        <% data_p.map(item=> { %>
+                         <option value="<%= item.idPropietario%>"> <%= item.nombre + " " + item.apellido %> </option>
+                        <% }) %>
+                    </select>
+            </div><br>
+            <div class="form-group">
+                <label for="mecanico">Mecánico asignado:</label>
+                <select name="mecanico_idmecanico" class="form-select">
+                    <% data_m.map(item=> { %>
+                     <option value="<%= item.idMecanico%>"> <%= item.nombre + " " + item.apellido %> </option>
+                    <% }) %>
+                </select>
+            </div><br>
+            <button type="submit" class="btn btn-primary">Guardar nuevo vehículo</button>
+        </form>
+    </div>
+    </div>
+    </div>
+  </div>
+</div><br><br><hr>
+
+<%- include('../partials/_footer') -%>

@@ -1,0 +1,68 @@
+<%- include('../partials/_header') -%>
+
+
+<h1 class="titulosAuto">Registrar propietario</h1>
+<div class="container-fluid container-md container-sm">
+    <div class="row">
+        <div class="col-xl-8 col-lg-9 col-md-10 col-sm-2">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td style="text-align: center">N#</td>
+                        <td style="text-align: center">Nombre</td>
+                        <td style="text-align: center">Apellido</td>
+                        <td style="text-align: center">Email</td>
+                        <td style="text-align: center">Nacimiento</td>
+                        <td>Modificar</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%   if (data) {  %>
+                        <%        for(var i=0;i<data.length;i++) { %>
+                                     <tr>
+                                         <td style="text-align: center"><%= (i + 1) %></td>
+                                         <td style="text-align: center"><%= data[i].nombre %></td>
+                                         <td style="text-align: center"><%= data[i].apellido %></td>
+                                         <td style="text-align: center"><%= data[i].email %></td>
+                                         <td style="text-align: center"><%= (data[i].fechaNacimiento).getDate() + "-" + ((data[i].fechaNacimiento).getMonth() + 1) + "-" + (data[i].fechaNacimiento).getFullYear()  %></td>
+                                         <td style="text-align: center"><a href="/update/<%= data[i].idPropietario %>" class="btn btn-info">Editar</a></td>
+    <td style="text-align: center"><a href="/delete/<%= data[i].idPropietario %>" class="btn btn-danger">Borrar</a></td>
+                                         </tr>
+                         <%   }  %>
+                        <%  }  %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+            <form action="/add" method="post" id="formularioPropietario">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" placeholder="Ingrese el nombre" class="form-control" id="nombre">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" placeholder="Ingrese el apellido" class="form-control" id="apellido">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="text" name="email" placeholder="Ingrese el correo electrónico" class="form-control" id="correo">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Ingrese la fecha de nacimiento:</label>
+                <input type="date" name="fechaNacimiento" class="form-control">
+            </div><br>
+            <button type="submit" class="btn btn-primary">Guardar nuevo propietario</button>
+        </form>
+    </div>
+</div>
+    </div>
+  </div>
+</div><br><br><br><hr>
+
+<%- include('../partials/_footer') -%>

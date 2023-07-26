@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+* {
+    --rose: #E3242B;
+    
+}
+
+
+.inicioDIV {
+    padding-top: 15%;
+    height: 800px;
+    width: 100%;
+    background-image: url("../images/cliente.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.tituloJohnDoe {
+    color: var(--rose);
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 350%;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 300;
+}
+
+
+.parrafo {
+    text-align: center;
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 140%;
+}
+

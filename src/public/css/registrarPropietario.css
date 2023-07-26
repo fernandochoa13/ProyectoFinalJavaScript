@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+* {
+    --rose: #E3242B;
+}
+
+body {
+    margin: 0
+}
+
+/*Navegación   */
+.titulosAuto {
+    color: var(--rose);
+    text-align: center; 
+    margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.navLink {
+    border: 0px!important;
+    color: white!important;
+}
+
+.navLink:hover {
+    color: var(--rose)!important;
+}
+
+.imgSrc{
+    width: 50%;
+}
+
+/* Footer */
+
+
+.footerCar {
+    text-align: center!important;
+    margin-top: 15px;
+}
+
+.footerText {
+    font-size: 120%;
+    text-align: center;
+    color: white;
+    
+}
+
+/* Imagen */
+.imagenCliente {
+    background-image: url("../images/cliente2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.imagenMecanico {
+    background-image: url("../images/mecanico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
