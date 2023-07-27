@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
       var color = document.getElementById('color').value;
-      if (color.length < 6) {
+      if (color.length == 0) {
         alert('No has escrito nada en el color');
         return;
       }
