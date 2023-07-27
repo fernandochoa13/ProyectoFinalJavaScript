@@ -23,9 +23,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(morgan('dev'));
 app.use(dbconnection(mysql, {
     database: johndoedatabase,
-username: 6fwiarbfsrg1u3svfomx,
+username: h82lszgle7edc6smfjg7,
 host: aws.connect.psdb.cloud,
-password: pscale_pw_29dBA0mPjobkBuv3SFt4GbIG8bmm4PRZtV8pU08CdTU,
+password: pscale_pw_ME8Hpa8FRqlgC6ywqVpk1ylLnIQWDEfQhdW397nDVt7,
     ssl: {
         rejectUnauthorized: false,
       }
