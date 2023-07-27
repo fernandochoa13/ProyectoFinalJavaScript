@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
     var apellido = document.getElementById('apellido').value;
-    if (apellido.length < 6) {
+    if (apellido.length == 0) {
       alert('No has escrito nada en el apellido');
       return;
     }
