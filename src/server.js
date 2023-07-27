@@ -22,11 +22,14 @@ app.set('views', path.join(__dirname, 'views'));
 //middlewares
 app.use(morgan('dev'));
 app.use(dbconnection(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: '',
+    host: 'aws.connect.psdb.cloud',
+    user: '8s2xhr2n073vu66132zl',
+    password: 'pscale_pw_49EtvCiTnNzKAniTKL7wFvlyNLcheMRw9Gu1ai3JUNg',
     port: 3306,
-    database: 'johndoedatabase'
+    database: 'johndoedatabase',
+    ssl: {
+        rejectUnauthorized: false,
+      }
 }, 'single'));
 app.use(express.urlencoded({extended: false}));
 
