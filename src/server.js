@@ -23,8 +23,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(morgan('dev'));
 app.use(dbconnection(mysql, {
     host: 'aws.connect.psdb.cloud',
-    user: '8s2xhr2n073vu66132zl',
-    password: 'pscale_pw_49EtvCiTnNzKAniTKL7wFvlyNLcheMRw9Gu1ai3JUNg',
+    user: 'l5sela1ojov1jsio230k',
+    password: 'pscale_pw_c4h0w7nALQ1KQSlwMe8o6Ul0c8J023cTTwgIStHZrCf',
     port: 3306,
     database: 'johndoedatabase',
     ssl: {
