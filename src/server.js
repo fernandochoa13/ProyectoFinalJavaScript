@@ -21,13 +21,29 @@ app.set('views', path.join(__dirname, 'views'));
 
 //middlewares
 app.use(morgan('dev'));
-app.use(dbconnection(mysql, {
+REST.prototype.connectMysql = function() {
+    var self = this;
+    var pool      =    mysql.createPool({
+        connectionLimit : 100,
+        waitForConnections : true,
+        queueLimit :0,
         host: 'localhost',
     user: 'id22037847_user1',
     password: 'DemiLovato1@',
     port: 3306,
     database: 'id22037847_johndoedatabase',
-}, 'single'));
+        debug    :  true,
+        wait_timeout : 28800,
+        connect_timeout :10
+    });
+    pool.getConnection(function(err,connection){
+        if(err) {
+          self.stop(err);
+        } else {
+          self.configureExpress(connection);
+        }
+    });
+}
 app.use(express.urlencoded({extended: false}));
 
 //rutas
