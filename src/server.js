@@ -23,10 +23,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(morgan('dev'));
 app.use(dbconnection(mysql, {
         host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'id22037847_user1',
+    password: 'DemiLovato1@',
     port: 3306,
-    database: 'johndoedatabase',
+    database: 'id22037847_johndoedatabase',
 }, 'single'));
 app.use(express.urlencoded({extended: false}));
 
